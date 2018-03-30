@@ -4,9 +4,30 @@
   <title>ideabox</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="reset.css">
 </head>
 <body>
-  <h1>Testing</h1>
+  <header>
+    <h1>idea<span>box</span></h1>
+  </header>
+  <main>
+    <form>
+      <input type="text" name="title" class="idea-title" placeholder="Title">
+      <input type="text" name="body" class = "idea-body" placeholder="Body">
+      <button class="save-button">save</button>
+    </form>
+  </main>
+  <section class="idea-container">
+    <input type="text" name="search" class="search-idea" placeholder="Search">
+    <article>
+      <h2>Example idea 1</h2>
+      <button class="delete icon"><img src="./FEE-ideabox-icon-assets/delete.svg"></button>
+      <p></p>
+      <button class="up-vote"><img src="./Fee-ideabox-icon-assets/upvote.svg"></button>
+      <button class="down-vote"><img src="./Fee-ideabox-icon-assets/downvote.svg"</button>
+      <hr>
+    </article>
+  </section>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
