@@ -63,15 +63,6 @@ function deleteIdea() {
   $(this).closest('article').remove();
 };
 
-
-
-
-
-
-
-
-
-
 // Upvote Button:
 // If quality === 'swill', then change text to 'plausible'
 // Else if quality === 'plausible', then change text to 'genius'
