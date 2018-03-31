@@ -6,19 +6,37 @@ $ideaQuality = $('.quality');
 // $upVoteButton = $('.up-vote');
 // $downVoteButton = $('.down-vote');
 
-$saveButton.on('click', addIdeaToBox);
+var idea = {
+  title: $ideaTitleField.val(),
+  body: $ideaBodyField.val(),
+  quality: 'swill',
+}
+
+
+$saveButton.on('click', generateIdeaObject);
 $('section').on('click', 'article .delete-icon', deleteIdea);
 $('section').on('click', 'article .up-vote', increaseQuality);
 $('section').on('click', 'article .down-vote', decreaseQuality);
 
 
+function CreateIdea(title, body) {
+  this.title = title;
+  this.body = body;
+  this.quality = 'swill';
+};
 
+function generateIdeaObject(e) {
+e.preventDefault();
+var idea1 = new CreateIdea($ideaTitleField.val(), $ideaBodyField.val());
+console.log(idea1);
+addIdeaToBox();
+}
 
-function addIdeaToBox(e) {
-  e.preventDefault();
+function addIdeaToBox (e) {
+  // e.preventDefault();
   $('section').append(`
     <article>
-      <h2 contenteditable="true">${$ideaTitleField.val()}</h2>
+      <h2 contenteditable="true">${this.title}</h2>
       <button class="delete-icon"></button>
       <p contenteditable="true">${$ideaBodyField.val()}</p>
       <button class="up-vote"></button>
@@ -36,7 +54,6 @@ function clearInputFields() {
 };
 
 function deleteIdea() {
-  console.log('Delete Me!');
   $(this).closest('article').remove();
 };
 
