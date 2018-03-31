@@ -2,7 +2,7 @@ $ideaTitleField = $('.idea-title');
 $ideaBodyField = $('.idea-body');
 $saveButton = $('.save-button');
 $deleteButton = $('.delete');
-$ideaQuality = $('.quality');
+// $ideaQuality = $('.quality');
 var count = 0;
 // $upVoteButton = $('.up-vote');
 // $downVoteButton = $('.down-vote');
@@ -32,7 +32,6 @@ function generateIdea(e) {
 };
 
 CreateIdea.prototype.prependCard = function() {
-  console.log('hi')
   $('section').prepend(`
     <article>
       <h2 contenteditable="true">${this.title}</h2>
@@ -40,7 +39,7 @@ CreateIdea.prototype.prependCard = function() {
       <p contenteditable="true">${this.body}</p>
       <button class="up-vote"></button>
       <button class="down-vote"></button>
-      <p class:"quality">quality: ${this.quality}</p>
+      <p>quality:<span class="quality">swill</span></p>
       <hr>
     </article>
     `);
@@ -77,17 +76,24 @@ function deleteIdea() {
 // Else if quality === 'plausible', then change text to 'genius'
 // else if quality === 'genius' do nothing
 function increaseQuality() {
-    this.quality = 'genius';
-    console.log(this.quality)
-    $('section').closest('.quality').text('genius')
-    // $ideaQuality = $('.quality');
-    // $ideaQuality.text('swill');
-}
+  console.log('hi')
+    var $quality = $('.quality')
+    if ($quality.text() === 'swill') {
+      $quality.text('plausible')
+    } else if ($quality.text() === 'plausible') {
+      $quality.text('genius')
+    }
+  };
 
 function decreaseQuality() {
-    console.log('down');
-    console.log($(this).closest('span'));
-} 
+     var $quality = $('.quality')
+    if ($quality.text() === 'genius') {
+      $quality.text('plausible')
+    } else if ($quality.text() === 'plausible') {
+      $quality.text('swill')
+    }
+  };
+
 
 // Downvote button: 
 // If quality === 'swill' do nothing;
