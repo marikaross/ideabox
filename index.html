@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <title>ideabox</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="reset.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <header>
-    <h1>idea<span>box</span></h1>
-  </header>
   <main>
+    <h1>idea<span>box</span></h1>
     <form>
       <input type="text" name="title" class="idea-title" placeholder="Title">
       <input type="text" name="body" class = "idea-body" placeholder="Body">
@@ -21,13 +21,15 @@
     <input type="text" name="search" class="search-idea" placeholder="Search">
     <article>
       <h2>Example idea 1</h2>
-      <button class="delete icon"><img src="./FEE-ideabox-icon-assets/delete.svg"></button>
+      <button class="delete icon"></button>
       <p></p>
-      <button class="up-vote"><img src="./Fee-ideabox-icon-assets/upvote.svg"></button>
-      <button class="down-vote"><img src="./Fee-ideabox-icon-assets/downvote.svg"</button>
+      <button class="up-vote"></button>
+      <button class="down-vote"></button>
+      <p class:"quality">quality:</p>
       <hr>
     </article>
   </section>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
