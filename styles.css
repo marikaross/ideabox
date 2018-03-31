@@ -51,6 +51,8 @@ span {
 /* Container styling */
 section {
   display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h2 {
@@ -59,34 +61,56 @@ h2 {
 }
 
 .delete-icon {
-  background: url('FEE-ideabox-icon-assets/delete.svg');
-  width: 5rem;
-  height: 5rem; 
-  float: right;        
+  background: url('FEE-ideabox-icon-assets/delete.svg') no-repeat;
+  border: none; 
+  float: right; 
+  height: 30px;
+  width: 30px;
+  margin: 5px;       
 }
 
 .delete-icon:hover {
-  background: url('FEE-ideabox-icon-assets/delete-hover.svg');
+  background: url('FEE-ideabox-icon-assets/delete-hover.svg') no-repeat;
+  border: none;
+  height: 30px;
+  width: 30px;
+  float: right;
 }
 
 p { 
   color: #939598;
+  display: inline-block;
 }
 
 .up-vote {
-  background: url('FEE-ideabox-icon-assets/upvote.svg');
+  background: url('FEE-ideabox-icon-assets/upvote.svg') no-repeat;
+  border: none;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
 }
 
 .up-vote:hover {
-  background: url('FEE-ideabox-icon-assets/upvote-hover.svg');
+  background: url('FEE-ideabox-icon-assets/upvote-hover.svg') no-repeat;
+  border: none;
+  height: 30px;
+  width: 30px;
 }
 
+
 .down-vote {
-  background: url('FEE-ideabox-icon-assets/downvote.svg');
+  background: url('FEE-ideabox-icon-assets/downvote.svg') no-repeat;
+  border: none;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
 }
 
 .down-vote:hover {
-  background: url('FEE-ideabox-icon-assets/downvote-hover.svg');
+  background: url('FEE-ideabox-icon-assets/downvote-hover.svg') no-repeat;
+  border: none;
+  height: 30px;
+  width: 30px;
 }
 
 .quality {
@@ -94,11 +118,13 @@ p {
 }
 
 hr {
-
+  width: 50vw;
+  margin: 0;
 }
 
 article {
   display: block;
-  width: 100vh;
+  width: 50vh;
+  margin-left: 50px:   
 }
 
