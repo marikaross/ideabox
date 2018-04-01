@@ -13,10 +13,9 @@ $('section').on('click', '.up-vote', increaseQuality);
 $('section').on('click', '.down-vote', decreaseQuality);
 
 function CreateIdea(title, body) {
-  count++;
   this.title = title;
   this.body = body;
-  this.id = count;
+  this.id = Date.now();
 };
 
 function generateIdea(e) {
@@ -27,9 +26,17 @@ function generateIdea(e) {
   newestIdea.prependCard();
   var ideaToStore1 = {title: newestIdea.title, body: newestIdea.body, id: newestIdea.id};
   var stringifiedIdea1 = JSON.stringify(ideaToStore1);
-  localStorage.setItem('savedIdea1', stringifiedIdea1)
-  console.log(stringifiedIdea1)
+  localStorage.setItem(newestIdea.id, stringifiedIdea1);
+  console.log(stringifiedIdea1);
+  retrieveIdeaFromStorage()
 };
+
+// On refresh, get from local storage and push to the array
+function retrieveIdeaFromStorage() {
+  var retrievedIdea = localStorage.getItem(stringifiedIdea1);
+  console.log(retrievedIdea);
+};
+
 
 CreateIdea.prototype.prependCard = function() {
   $('.idea-container').prepend(`
@@ -48,12 +55,6 @@ CreateIdea.prototype.prependCard = function() {
   // storeIdea();
 };
 
-// function storeIdea() {
-//   var ideaToStore1 = {title: newestIdea.title, body: this.body, id: this.id};
-//   console.log(ideaToStore1)
-// }
-
-
 function clearInputFields() {
   $ideaTitleField.val('');
   $ideaBodyField.val('');
@@ -63,23 +64,13 @@ function deleteIdea() {
   $(this).closest('article').remove();
 };
 
-
-
-
-
-
-
-
-
-
-
 function increaseQuality() {
     var $quality = $('.quality')
     if ($(this).siblings('p').children('.quality').text() === 'swill') {
       $(this).siblings('p').children('.quality').text('plausible')
     } else if ($(this).siblings('p').children('.quality').text() === 'plausible') {
       $(this).siblings('p').children('.quality').text('genius')
-    }
+    };
   };
 
 function decreaseQuality() {
@@ -88,7 +79,7 @@ function decreaseQuality() {
       $(this).siblings('p').children('.quality').text('plausible')
     } else if ($(this).siblings('p').children('.quality').text() === 'plausible') {
       $(this).siblings('p').children('.quality').text('swill')
-    }
+    };
   };
 
 
