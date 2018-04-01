@@ -44,6 +44,7 @@ CreateIdea.prototype.prependCard = function() {
     </article>
     `);
   clearInputFields();
+  $ideaTitleField.focus()
   // storeIdea();
 };
 
@@ -71,13 +72,8 @@ function deleteIdea() {
 
 
 
-// Upvote Button:
-// If quality === 'swill', then change text to 'plausible'
-// Else if quality === 'plausible', then change text to 'genius'
-// else if quality === 'genius' do nothing
+
 function increaseQuality() {
-  console.log('hi')
-  console.log($(this).siblings('p').children('.quality'))
     var $quality = $('.quality')
     if ($(this).siblings('p').children('.quality').text() === 'swill') {
       $(this).siblings('p').children('.quality').text('plausible')
@@ -88,17 +84,11 @@ function increaseQuality() {
 
 function decreaseQuality() {
      var $quality = $('.quality')
-    if ($quality.text() === 'genius') {
-      $quality.text('plausible')
-    } else if ($quality.text() === 'plausible') {
-      $quality.text('swill')
+    if ($(this).siblings('p').children('.quality').text() === 'genius') {
+      $(this).siblings('p').children('.quality').text('plausible')
+    } else if ($(this).siblings('p').children('.quality').text() === 'plausible') {
+      $(this).siblings('p').children('.quality').text('swill')
     }
   };
 
-
-// Downvote button: 
-// If quality === 'swill' do nothing;
-// else if quality === 'plausible', change text to 'swill';
-// else if quality === 'genius', change text to 'plausible'
-// 
 
