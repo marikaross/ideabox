@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>ideabox</title>
-  <link rel="stylesheet" type="text/css" href="reset.css">
+<!--   <link rel="stylesheet" type="text/css" href="reset.css"> -->
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
@@ -10,26 +10,31 @@
 </head>
 <body>
   <main>
-    <h1>idea<span>box</span></h1>
-    <form>
-      <input type="text" name="title" class="idea-title" placeholder="Title">
-      <input type="text" name="body" class = "idea-body" placeholder="Body">
-      <button class="save-button">save</button>
-    </form>
+    <section class="create-idea">
+      <h1 class="title">idea<span>box</span></h1>
+      <form>
+        <input type="text" name="title" class="idea-title" placeholder="Title">
+        <input type="text" name="body" class = "idea-body" placeholder="Body">
+        <button class="save-button">save</button>
+      </form>
+    </section>
   </main>
-  <section class="idea-container">
+  <section class="search">
     <input type="text" name="search" class="search-idea" placeholder="Search">
-   <!--  <article>
+  </section>
+  <section class="idea-container">
+    <!-- <article>
       <button class="delete-icon"></button>
       <h2>Example idea 1</h2>
       <p contenteditable="true">We have unlimited juice? This party is going to be off the hook. So maybe you could start jete-ing, and stop je-terrorizing me! </p>
       <button class="up-vote"></button>
       <button class="down-vote"></button>
-      <p>quality:<span class="quality">swill</span></p>
+      <p class="rating">quality:<span class="quality">swill</span></p>
       <hr>
     </article> -->
   </section>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
