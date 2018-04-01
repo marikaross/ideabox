@@ -8,9 +8,9 @@ var count = 0;
 // $downVoteButton = $('.down-vote');
 
 $saveButton.on('click', generateIdea);
-$('section').on('click', 'article .delete-icon', deleteIdea);
-$('section').on('click', 'article .up-vote', increaseQuality);
-$('section').on('click', 'article .down-vote', decreaseQuality);
+$('section').on('click', '.delete-icon', deleteIdea);
+$('section').on('click', '.up-vote', increaseQuality);
+$('section').on('click', '.down-vote', decreaseQuality);
 
 function CreateIdea(title, body) {
   count++;
@@ -32,18 +32,19 @@ function generateIdea(e) {
 };
 
 CreateIdea.prototype.prependCard = function() {
-  $('section').prepend(`
+  $('.idea-container').prepend(`
     <article>
-      <h2 contenteditable="true">${this.title}</h2>
       <button class="delete-icon"></button>
-      <p contenteditable="true">${this.body}</p>
+      <h2>${$ideaTitleField.val()}</h2>
+      <p contenteditable="true">${$ideaBodyField.val()}</p>
       <button class="up-vote"></button>
       <button class="down-vote"></button>
-      <p>quality:<span class="quality">swill</span></p>
+      <p class="rating">quality:<span class="quality">swill</span></p>
       <hr>
     </article>
     `);
   clearInputFields();
+  $ideaTitleField.focus()
   // storeIdea();
 };
 
@@ -71,33 +72,23 @@ function deleteIdea() {
 
 
 
-// Upvote Button:
-// If quality === 'swill', then change text to 'plausible'
-// Else if quality === 'plausible', then change text to 'genius'
-// else if quality === 'genius' do nothing
+
 function increaseQuality() {
-  console.log('hi')
     var $quality = $('.quality')
-    if ($quality.text() === 'swill') {
-      $quality.text('plausible')
-    } else if ($quality.text() === 'plausible') {
-      $quality.text('genius')
+    if ($(this).siblings('p').children('.quality').text() === 'swill') {
+      $(this).siblings('p').children('.quality').text('plausible')
+    } else if ($(this).siblings('p').children('.quality').text() === 'plausible') {
+      $(this).siblings('p').children('.quality').text('genius')
     }
   };
 
 function decreaseQuality() {
      var $quality = $('.quality')
-    if ($quality.text() === 'genius') {
-      $quality.text('plausible')
-    } else if ($quality.text() === 'plausible') {
-      $quality.text('swill')
+    if ($(this).siblings('p').children('.quality').text() === 'genius') {
+      $(this).siblings('p').children('.quality').text('plausible')
+    } else if ($(this).siblings('p').children('.quality').text() === 'plausible') {
+      $(this).siblings('p').children('.quality').text('swill')
     }
   };
 
-
-// Downvote button: 
-// If quality === 'swill' do nothing;
-// else if quality === 'plausible', change text to 'swill';
-// else if quality === 'genius', change text to 'plausible'
-// 
 

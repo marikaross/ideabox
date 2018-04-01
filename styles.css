@@ -1,47 +1,56 @@
-body {
+html, body {
+  box-sizing: border-box;
   font-family: open sans, sans serif;
   font-weight: 400;
   margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
-h1 {
+.title {
   color: #00a79d;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.8em;
+  font-family: 'Roboto slab';
+  font-size: 3.8em;
   font-weight: 700;
+  margin: 0;
+  padding-top: 45px;
+  text-align: center;
 }
 
 main {
-  background-color: #e5f3f2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 40vh;
-  justify-content: center;
+  background-color: #e5f3f2;  
+  width: 100%;
+}
+
+.create-idea {
+  margin: auto;
+  width: 50%;
 }
 
 input {
-  width: 50vw;
-  padding: 15px;
-  margin: 15px;
+  border: solid 1px #d1d3d4;
   font-size:1em;
+  margin: 20px 0;
+  overflow: ellipses;
+  padding: 15px 0;
+  width: 99%;
 }
 
 form {
-  display: inline-grid;
+  width: 100%;
 }
 
 span {
   color: #6d6e71;
 }
 
-
 .save-button {
-  color:#ffffff;
   background-color: #00a79d;
-  width: 52vw;
+  color:#ffffff;
+  font-size: 20px;
+  margin-bottom: 15px;
   padding: 15px;
-  margin: 15px;
+  width: 100%;
 }
 
 .save-button:hover {
@@ -49,24 +58,36 @@ span {
 }
 
 /* Container styling */
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+.search {
+  margin: auto;
+  width: 50%;
+}
+
+.search-idea {
+  margin: 20px 0;
+  padding: 15px 0;
+  width: 99%;
+}
+
+.idea-container {
+  margin: auto;
+  width: 50%;
 }
 
 h2 {
   color: #6d6e71;
-  font: roboto slab, serif;
+  font-family: roboto slab, serif;
+  font-weight: 700;
 }
 
 .delete-icon {
   background: url('FEE-ideabox-icon-assets/delete.svg') no-repeat;
-  border: none; 
-  float: right; 
+  border: none;  
   height: 30px;
+  margin: 5px;
+  float: right;      
   width: 30px;
-  margin: 5px;       
 }
 
 .delete-icon:hover {
@@ -74,12 +95,10 @@ h2 {
   border: none;
   height: 30px;
   width: 30px;
-  float: right;
 }
 
 p { 
   color: #939598;
-  display: inline-block;
 }
 
 .up-vote {
@@ -113,18 +132,15 @@ p {
   width: 30px;
 }
 
-.quality {
-  font: roboto slab;
-}
-
-hr {
-  width: 50vw;
-  margin: 0;
+.quality,
+.rating {
+  font-family: roboto slab;
+  display: inline;
 }
 
 article {
-  /*display: block;*/
-  width: 50vh;
-  margin: 0 auto;   
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: #939598;   
 }
 
