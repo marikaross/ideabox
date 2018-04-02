@@ -3,9 +3,11 @@ $ideaBodyField = $('.idea-body');
 $saveButton = $('.save-button');
 $deleteButton = $('.delete');
 // $ideaQuality = $('.quality');
-var count = 0;
 // $upVoteButton = $('.up-vote');
 // $downVoteButton = $('.down-vote');
+var ideaTitle = $ideaTitleField.val();
+var ideaBody = $ideaBodyField.val();
+var newestIdea = new CreateIdea(ideaTitle, ideaBody);
 
 $saveButton.on('click', generateIdea);
 $('section').on('click', '.delete-icon', deleteIdea);
@@ -16,6 +18,7 @@ function CreateIdea(title, body) {
   this.title = title;
   this.body = body;
   this.id = Date.now();
+  this.quality = 'swill';
 };
 
 function generateIdea(e) {
@@ -23,27 +26,27 @@ function generateIdea(e) {
   var ideaTitle = $ideaTitleField.val();
   var ideaBody = $ideaBodyField.val();
   var newestIdea = new CreateIdea(ideaTitle, ideaBody);
-  newestIdea.prependCard();
-  var ideaToStore1 = {title: newestIdea.title, body: newestIdea.body, id: newestIdea.id};
+  newestIdea.prependCard(newestIdea);
+  sendIdeatoStorage(newestIdea);
+};
+
+function sendIdeatoStorage(ideaToStore1) {
   var stringifiedIdea1 = JSON.stringify(ideaToStore1);
-  localStorage.setItem(newestIdea.id, stringifiedIdea1);
-  console.log(stringifiedIdea1);
-  retrieveIdeaFromStorage()
-};
-
-// On refresh, get from local storage and push to the array
-function retrieveIdeaFromStorage() {
-  var retrievedIdea = localStorage.getItem(stringifiedIdea1);
-  console.log(retrievedIdea);
+  localStorage.setItem(ideaToStore1.id, stringifiedIdea1);
+  retrieveIdeaFromStorage(ideaToStore1.id);
 };
 
 
-CreateIdea.prototype.prependCard = function() {
+function retrieveIdeaFromStorage(id) {
+  var retrievedIdea = localStorage.getItem(id);
+};
+
+CreateIdea.prototype.prependCard = function(idea) {
   $('.idea-container').prepend(`
-    <article>
+    <article id="${idea.id}">
       <button class="delete-icon"></button>
-      <h2>${$ideaTitleField.val()}</h2>
-      <p contenteditable="true">${$ideaBodyField.val()}</p>
+      <h2>${idea.title}</h2>
+      <p contenteditable="true">${idea.body}</p>
       <button class="up-vote"></button>
       <button class="down-vote"></button>
       <p class="rating">quality:<span class="quality">swill</span></p>
@@ -65,14 +68,20 @@ function deleteIdea() {
 };
 
 function increaseQuality() {
-    var $quality = $('.quality')
-    if ($(this).siblings('p').children('.quality').text() === 'swill') {
-      $(this).siblings('p').children('.quality').text('plausible')
-    } else if ($(this).siblings('p').children('.quality').text() === 'plausible') {
-      $(this).siblings('p').children('.quality').text('genius')
+  var $currentQuality = $(this).siblings('p').children('.quality').text();
+  var newQuality = '';
+    if ($currentQuality === 'swill') {
+      newQuality = 'plausible';
+    } else if ($currentQuality === 'plausible') {
+      newQuality = 'genius';
     };
+    var currentCardId = $(this).closest('article').attr('id');
+    $(this).siblings('p').children('.quality').text(newQuality);
+    console.log(newQuality);
   };
 
+
+// Re-factor decreaseQuality same as above
 function decreaseQuality() {
      var $quality = $('.quality')
     if ($(this).siblings('p').children('.quality').text() === 'genius') {
