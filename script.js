@@ -81,7 +81,6 @@ function prependIdeas (idea) {
       <hr>
     </article>
     `);
-  // console.log(this);
   clearInputFields();
   $ideaTitleField.focus()
 };
