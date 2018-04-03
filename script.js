@@ -16,11 +16,8 @@ $('section').on('click', '.up-vote', increaseQuality);
 $('section').on('click', '.down-vote', decreaseQuality);
 
 $(document).ready(function() {
-  // console.log(localStorage);
   for (var i = 0; i < localStorage.length; i++) {
     var storedIdea = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
-    console.log(storedIdea)
     prependIdeas(storedIdea);
   }
 })
@@ -69,7 +66,6 @@ function retrieveIdeaFromStorage(id) {
 // };
 
 function prependIdeas (idea) {
-  // console.log('p')
   $('.idea-container').prepend(`
     <article id="${idea.id}">
       <button class="delete-icon"></button>
@@ -81,7 +77,6 @@ function prependIdeas (idea) {
       <hr>
     </article>
     `);
-  // console.log(this);
   clearInputFields();
   $ideaTitleField.focus()
 };
@@ -93,7 +88,7 @@ function clearInputFields() {
 
 function deleteIdea() {
   $(this).closest('article').remove();
-  localStorage.removeItem($(this).closest('article'));
+  localStorage.removeItem($(this).closest('article').attr('id'));
 };
 
 function increaseQuality() {
