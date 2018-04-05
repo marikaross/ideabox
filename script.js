@@ -54,11 +54,11 @@ function sendIdeatoStorage(newestIdea) {
 function prependIdeas (idea) {
   $('.idea-container').prepend(`
     <article id="${idea.id}">
-    <button class="delete-icon"></button>
+    <button class="delete-icon icon"></button>
     <h2 class="card-title">${idea.title}</h2>
     <p contenteditable="true" class="card-body">${idea.body}</p>
-    <button class="up-vote"></button>
-    <button class="down-vote"></button>
+    <button class="up-vote icon"></button>
+    <button class="down-vote icon"></button>
     <p class="rating">quality:<span class="quality">${idea.quality}</span></p>
     <hr>
     </article>
