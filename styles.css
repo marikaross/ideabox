@@ -22,7 +22,9 @@ main {
   width: 100%;
 }
 
-.create-idea {
+.create-idea,
+.search,
+.idea-container {
   margin: auto;
   width: 50%;
 }
@@ -57,22 +59,12 @@ span {
   background-color: #045e55;
 }
 
-/* Container styling */
 
-.search {
-  margin: auto;
-  width: 50%;
-}
-
-.search-idea {
-  margin: 20px 0;
-  padding: 15px 0;
-  width: 99%;
-}
-
-.idea-container {
-  margin: auto;
-  width: 50%;
+/* Prepended Article */
+article {
+  border-bottom: #939598;   
+  margin: 0 auto;
+  width: 100%;
 }
 
 h2 {
@@ -81,20 +73,21 @@ h2 {
   font-weight: 700;
 }
 
-.delete-icon {
-  background: url('FEE-ideabox-icon-assets/delete.svg') no-repeat;
+.icon {
   border: none;  
   height: 30px;
   margin: 5px;
-  float: right;      
   width: 30px;
+}
+
+.delete-icon {
+  background: url('FEE-ideabox-icon-assets/delete.svg') no-repeat;
+  float: right;      
+  margin: 5px;
 }
 
 .delete-icon:hover {
   background: url('FEE-ideabox-icon-assets/delete-hover.svg') no-repeat;
-  border: none;
-  height: 30px;
-  width: 30px;
 }
 
 p { 
@@ -103,44 +96,81 @@ p {
 
 .up-vote {
   background: url('FEE-ideabox-icon-assets/upvote.svg') no-repeat;
-  border: none;
-  height: 30px;
-  width: 30px;
-  margin: 5px;
 }
 
 .up-vote:hover {
   background: url('FEE-ideabox-icon-assets/upvote-hover.svg') no-repeat;
-  border: none;
-  height: 30px;
-  width: 30px;
 }
 
 
 .down-vote {
   background: url('FEE-ideabox-icon-assets/downvote.svg') no-repeat;
-  border: none;
-  height: 30px;
-  width: 30px;
-  margin: 5px;
 }
 
 .down-vote:hover {
   background: url('FEE-ideabox-icon-assets/downvote-hover.svg') no-repeat;
-  border: none;
-  height: 30px;
-  width: 30px;
 }
 
 .quality,
 .rating {
-  font-family: roboto slab;
   display: inline;
+  font-family: roboto slab;
 }
 
-article {
-  width: 100%;
-  margin: 0 auto;
-  border-bottom: #939598;   
+
+/*Media Queries*/
+@media screen and (max-width: 550px) {
+
+  .create-idea,
+  .search,
+  .idea-container {
+    margin: auto;
+    width: 75%;
+  }
+
+  .save-button {
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  input {
+    margin: 10px 0;
+    padding: 5px 0;
+  }
+
+  #idea-body {
+    height: 60px;
+  }
+
+  .title {
+    font-size: 2.8em;
+  }
+
+  .icon {
+    border: none;  
+    height: 20px;
+    margin: 5px;
+    width: 20px;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  p {
+    font-size: .8em;
+  }
+
+  input::placeholder {
+    font-size: .8em;
+    padding-top: 0;
+  }
+
+
+
+
 }
+
 
