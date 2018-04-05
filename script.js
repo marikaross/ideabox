@@ -50,7 +50,6 @@ function sendIdeatoStorage(newestIdea) {
   localStorage.setItem(newestIdea.id, stringifiedIdea1);
 };
 
-
 function prependIdeas (idea) {
   $('.idea-container').prepend(`
     <article id="${idea.id}">
@@ -92,8 +91,7 @@ function increaseQuality() {
   $(this).siblings('p').children('.quality').text(newQuality);
   var retrievedCard = JSON.parse(localStorage.getItem(currentCardId));
   retrievedCard.quality = newQuality;
-  var stringifiedIdea1 = JSON.stringify(retrievedCard);
-  localStorage.setItem(retrievedCard.id, stringifiedIdea1);
+  sendIdeatoStorage(retrievedCard);
 };
 
 function decreaseQuality() {
@@ -111,8 +109,7 @@ function decreaseQuality() {
   $(this).siblings('p').children('.quality').text(newQuality);
   var retrievedCard = JSON.parse(localStorage.getItem(currentCardId));
   retrievedCard.quality = newQuality;
-  var stringifiedIdea1 = JSON.stringify(retrievedCard);
-  localStorage.setItem(retrievedCard.id, stringifiedIdea1);
+  sendIdeatoStorage(retrievedCard);
 };
 
 function saveEdits(e) {
@@ -122,8 +119,7 @@ function saveEdits(e) {
     var currentCardId = $(this).closest('article').attr('id');
     var retrievedCard = JSON.parse(localStorage.getItem(currentCardId));
     retrievedCard.body = editedBodyContent;
-    var stringifiedIdea1 = JSON.stringify(retrievedCard);
-    localStorage.setItem(retrievedCard.id, stringifiedIdea1);
+    sendIdeatoStorage(retrievedCard);
     $(this).attr('contentEditable', false);
   };
 };
@@ -133,13 +129,10 @@ function searchIdeas() {
   $("article:not(:contains('"+ $searchField.val() +"'))").hide();
 };
 
-
 function disableSave() {
   if($('.idea-title').val() === "" || $('.idea-body').val() === "") {
     $saveButton.prop('disabled', true);
   } else {
     $saveButton.prop('disabled', false);   
-  }
+  };
 };
-
-
