@@ -16,7 +16,6 @@ $('.idea-container').on('click', 'p',  allowEdits);
 $('.search-idea').on('keyup',  searchIdeas);
 
 $(document).ready(retrieveSavedIdeas); 
-$('.idea-body').on('keyup', disableSave);
 
 function allowEdits() {
   $(this).attr('contentEditable', true);

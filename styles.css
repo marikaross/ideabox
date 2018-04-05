@@ -33,7 +33,7 @@ input {
   border: solid 1px #d1d3d4;
   font-size:1em;
   margin: 20px 0;
-  overflow: ellipses;
+  overflow: scroll;
   padding: 15px 0;
   width: 99%;
 }
