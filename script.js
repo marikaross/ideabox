@@ -16,6 +16,7 @@ $('.idea-container').on('click', 'p',  allowEdits);
 $('.search-idea').on('keyup',  searchIdeas);
 
 $(document).ready(retrieveSavedIdeas); 
+$('.idea-body').on('keyup', disableSave);
 
 function allowEdits() {
   $(this).attr('contentEditable', true);
@@ -64,6 +65,7 @@ function prependIdeas (idea) {
     `);
   clearInputFields();
   $ideaTitleField.focus();
+  $saveButton.prop('disabled', true);
 };
 
 function clearInputFields() {
@@ -132,5 +134,12 @@ function searchIdeas() {
 };
 
 
+function disableSave() {
+  if($('.idea-title').val() === "" || $('.idea-body').val() === "") {
+    $saveButton.prop('disabled', true);
+  } else {
+    $saveButton.prop('disabled', false);   
+  }
+};
 
 
